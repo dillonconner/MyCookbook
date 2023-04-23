@@ -1,0 +1,80 @@
+.recipe-tile {
+    position: relative;
+    display: flex;
+    background-color: antiquewhite;
+    border-bottom: 2px solid rgb(39, 39, 39);
+    width: 75vw;
+    height: 50vh;
+    padding-bottom: 1vh;
+    font-size: 1vw;
+    text-align: left;
+}
+
+.recipe-tile .info {
+    width: 23vw;
+    padding-left: 2vw;
+}
+.recipe-tile .image {
+    width: 25vw;
+}
+
+.recipe-tile img {
+    height: 100%;
+    width: 100%;
+}
+
+.recipe-tile .user-info {
+    display: flex;
+}
+
+/*    Editable     */
+
+.recipe-tile .title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.recipe-tile textarea {
+    background-color: transparent;
+    font-size: 1.25em;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    overflow:hidden;
+    width:95%;
+    resize: none;
+    margin-top: 1vh;
+}
+
+.recipe-tile input {
+    background-color: transparent;
+    width: 30%;
+    margin-top: 3vh;
+    padding-left: 1vw;
+    font-size: 1.5em;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.recipe-tile label {
+    font-size: 1.5em;
+    width: max-content;
+    margin-right: 10px;
+}
+
+.recipe-tile .tags {
+    display: flex;
+    position: absolute;
+    width: 25vw;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+}
+
+.recipe-tile p {
+    font-size: 1.25em;
+    margin-right: 1vw;
+}
+
+.recipe-tile button {
+    font-size: inherit;
+}

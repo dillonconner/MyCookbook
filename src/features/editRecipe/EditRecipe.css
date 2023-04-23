@@ -1,0 +1,21 @@
+.edit-recipe {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 1vh;
+}
+
+.edit-recipe .buttons {
+    position: absolute;
+    top: 0;
+    right: 70px;
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    width:max-content;
+    z-index: 2;
+}
+.edit-recipe .buttons button {
+    width: 100%;
+    font-size: 1.5em;
+}

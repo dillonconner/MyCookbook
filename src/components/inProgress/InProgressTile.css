@@ -1,0 +1,81 @@
+.in-progress {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: antiquewhite;
+    height: 50vh;
+    width: 75vw;
+    border: 5px solid rgb(138, 128, 101);
+    font-size: 1vw;
+}
+
+.in-progress img {
+    height: 35vh;
+    width: 20vw;
+}
+
+.in-progress h3 {
+    font-size: 1.5em;
+    margin-top: 1vh;
+    height: 1.5em;
+    overflow: hidden;
+}
+
+.in-progress div {
+    height: auto;
+    width: 20vw;
+    margin: 2px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.in-progress ul, .in-progress ol {
+    background-color: aliceblue;
+    height: 78%;
+    border-radius: 10px;
+    overflow-y: scroll;
+    font-size: 1.25em;
+}
+.in-progress li {
+    padding: 5px 10px;
+}
+
+.in-progress .description {
+    text-align: center;
+}
+.in-progress .ingredients {
+}
+.in-progress .instructions {
+    margin-right: 1vw;
+}
+.in-progress .options {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    padding-right: 1vw;
+    background-color: rgba(138, 128, 101, 0.5);
+    
+    width: 5vw;
+    height: inherit;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+    z-index: 2;
+    transition: 1s;
+}
+
+.in-progress .icon {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height:100%;
+    width: 3vw;
+    padding: 0;
+    margin: 0;
+    transition: 1s;
+}

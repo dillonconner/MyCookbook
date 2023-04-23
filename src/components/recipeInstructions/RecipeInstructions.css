@@ -1,0 +1,90 @@
+.recipe-instructions {
+    position: relative;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    font-size: 1vw;
+    padding-bottom: 10vh;
+    white-space: normal;
+}
+.recipe-instructions .list {
+    background-color: antiquewhite;
+    text-align: center;
+    align-items: center;
+    width: 50%;
+}
+.recipe-instructions .instructions div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.recipe-instructions .display li {
+    font-size: 1.5em;
+    text-align: left;
+    margin-bottom: 1vh;
+    width:100%;
+}
+
+.recipe-instructions h3 {
+    font-size: 1.5em;
+    margin-top: 3vh;
+}
+
+/*    Editable     */
+
+.recipe-instructions textarea {
+    background-color: transparent;
+    font-size: 1.25em;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    margin: 2vh 1vw;
+    overflow:hidden;
+    width:80%;
+    resize: none;
+    margin-top: 1vh;
+}
+
+.recipe-instructions .steps {
+    resize:vertical;
+}
+
+.recipe-instructions li {
+    margin: 0 2vw;
+}
+
+.recipe-instructions input {
+    background-color: transparent;
+    margin-top: 3vh;
+    font-size: 1.5em;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.recipe-instructions label {
+    font-size: 1.5em;
+    display: inline-block;
+    width: 8vw;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.recipe-instructions .removeItem {
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    font-size: 2em;
+    color:red;
+    margin: 0;
+}
+.recipe-instructions .addItem {
+    background-color: transparent;
+    border: none;
+    font-size: 2em;
+    padding-top: 1vh;
+    width: 80%;
+}
+.recipe-instructions input {
+    width: 70%;
+}

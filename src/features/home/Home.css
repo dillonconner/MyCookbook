@@ -1,0 +1,13 @@
+.home {
+    justify-content: center;
+}
+
+.home .temp {
+    display: flex;
+}
+
+.home .preview-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

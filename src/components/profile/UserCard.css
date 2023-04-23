@@ -1,0 +1,45 @@
+.user-card {
+    background-color: antiquewhite;
+    position: relative;
+    width: 15vw;
+    height: 700px;
+    margin-right: 2vw;
+    padding: 2vh 1vw;
+    text-align: left;
+    font-size: 1vw;
+}
+
+.user-card img {
+    width:85%;
+    margin-left: 7.5%;
+    background-color: aqua;
+}
+
+.user-card h3 {
+    margin: 0;
+    font-size: 2em;
+}
+.user-card label {
+    font-size: 1.5em;
+}
+
+.user-card p {
+    width: 100%;
+    margin-top: 0;
+}
+.user-card ul {
+    margin: 0;
+}
+
+.user-card .new-recipe-btn {
+    background-color: rgb(250, 104, 104);
+    position: absolute;
+    bottom: 5%;
+    left: 12.5%;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    padding: 5% 20%;
+    border: 3px solid black;
+    border-radius: 5px;
+}
