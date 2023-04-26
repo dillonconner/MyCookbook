@@ -2,7 +2,7 @@
     background-color: whitesmoke;
     position: relative;
     display: flex;
-    width: 900px;
+    width: 100%;
     font-size: 1vw;
     padding-bottom: 20px;
     white-space: normal;
@@ -17,7 +17,7 @@
     width: 60%;
 }
 
-.recipe-instructions .steps div {
+.recipe-instructions .steps .step-li {
     display: flex;
     width: 100%;
 }
@@ -75,4 +75,18 @@
     font-size: 2em;
     padding-top: 1vh;
     width: 80%;
+}
+.recipe-instructions .addItem:hover {
+    color:black;
+    cursor: pointer;
+}
+
+.recipe-instructions .addedItem {
+    color: var(--lightGreen);
+}
+.recipe-instructions .removedItem {
+    color: var(--tomatoRed);
+}
+.recipe-instructions .removedHeader {
+    text-align: left;
 }

@@ -57,20 +57,21 @@ const EditRecipe = () => {
     if(!recipe) return <div>Loading</div>
     return (
         <div className="edit-recipe">
-            <div className="content">
-                <div className="buttons">
-                    {!isEdit ? <button onClick={handleEditBtn}>Edit</button> : 
-                                <button onClick={handleSaveBtn}>Save</button>}
-                    {!isEdit && <button onClick={handleToInProgressBtn}>In Progress</button>}
-                    <button onClick={handleDeleteBtn}>Delete Recipe</button>
-                </div>
-                <RecipeTile isEdit={isEdit} recipe={recipe} edit={edit} />
+            <div className="buttons">
+                {!isEdit ? <button onClick={handleEditBtn}>Edit</button> : 
+                            <button onClick={handleSaveBtn}>Save</button>}
+                {!isEdit && <button onClick={handleToInProgressBtn}>In Progress</button>}
+                <button onClick={handleDeleteBtn}>Delete Recipe</button>
+            </div>
+            <RecipeTile isEdit={isEdit} recipe={recipe} edit={edit} />
+            <div className="instructions-container">
                 <RecipeInstructions
                     ingredients={recipe.ingredients} 
                     steps={recipe.steps}
                     isEdit={isEdit}
                     edit={edit} />
             </div>
+            
         </div>
     )
 }

@@ -2,8 +2,7 @@ import React from 'react';
 
 import './RecipeInstructions.css';
 
-const RecipeInstructions = ({ingredients, steps, isEdit, edit}) => {
-    
+const RecipeInstructions = ({isEdit, ingredients, steps, additions, deletions, edit }) => {
 
     const handleIngredientChange = (e) => {
         let newIngredients = [...ingredients];
@@ -17,7 +16,6 @@ const RecipeInstructions = ({ingredients, steps, isEdit, edit}) => {
         newSteps[index] = e.target.value;
         edit(newSteps, 'steps');
     }
-
     const handleRemoveListItem = (e) => {
         const toRemove = e.target.getAttribute('to-remove');
         const list = e.target.getAttribute('list');
@@ -28,14 +26,29 @@ const RecipeInstructions = ({ingredients, steps, isEdit, edit}) => {
         edit(newItems, list);
     }
 
+
     return (
         <div className='recipe-instructions'>
             {!isEdit ? 
                 <div className='ingredients display'>
                     <h3>Ingredients</h3>
                     <ul>
-                        {ingredients.map((ingredient, id) => <li key={id}>{ingredient}</li>)}
+                        {additions ?
+                            ingredients.map((ingredient, id) => {
+                                return <li className={additions.ingredients.includes(ingredient) ? 'addedItem' :undefined} key={id}>{ingredient}</li>
+                            })
+                            :
+                            ingredients.map((ingredient, id) => <li key={id}>{ingredient}</li> )
+                        }
+                        
                     </ul>
+                    
+                    {deletions && 
+                        <div>
+                            <p>Removed</p>
+                            {deletions.ingredients.map((ingredient, id) => <li className='removedItem' key={id}>{ingredient}</li>)}
+                        </div>
+                    }
                 </div> 
                 : 
                 <div className='ingredients edit'>
@@ -54,14 +67,26 @@ const RecipeInstructions = ({ingredients, steps, isEdit, edit}) => {
                 <div className='steps display'>
                     <h3>Instructions</h3>
                     <ol>
-                        {steps.map((step, id) => <li key={id}>{step}</li>)}
+                        {additions ?
+                            steps.map((step, id) => {
+                                return <li className={additions.steps.includes(step) ? 'addedItem' : undefined} key={id}>{step}</li>
+                            })
+                            :
+                            steps.map((step, id) => <li key={id}>{step}</li>)
+                        }
                     </ol>
+                    {deletions && 
+                        <div>
+                            <p>Removed</p>
+                            {deletions.steps.map((step, id) => <li className='removedItem' key={id}>{step}</li>)}
+                        </div>
+                    }
                 </div> 
                 : 
                 <div className='steps edit'>
                     <h3>Instructions</h3>
                     {steps.map((step, id) => {
-                        return (<div key={id}>
+                        return (<div key={id} className='step-li'>
                                     <p>{id + 1}.</p>
                                     <textarea rows={3} data-key={id} value={step} onChange={handleStepChange} />
                                     <button className={`removeItem`} to-remove={step} list='steps' onClick={handleRemoveListItem}>-</button>

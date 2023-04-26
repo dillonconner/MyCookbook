@@ -44,6 +44,23 @@ const EditInProgress = () => {
         setRecipe(newInProgress);
     }
 
+    const findAdded = (versionIndex) => {
+        if(versionIndex === 0) return
+        const curr = recipe.versions[versionIndex];
+        const prev = recipe.versions[versionIndex - 1];
+        const newIngredients = curr.ingredients.filter((i) => !prev.ingredients.includes(i));
+        const newSteps = curr.steps.filter((s) => !prev.steps.includes(s));
+        return {ingredients:newIngredients, steps:newSteps};
+    }
+    const findRemoved = (versionIndex) => {
+        if(versionIndex === 0) return
+        const curr = recipe.versions[versionIndex];
+        const prev = recipe.versions[versionIndex - 1];
+        const removedIngredients = prev.ingredients.filter((i) => !curr.ingredients.includes(i));
+        const removedSteps = prev.steps.filter((s) => !curr.steps.includes(s));
+        return {ingredients:removedIngredients, steps:removedSteps};
+    }
+
     const handleEditBtn = (e) => setIsEdit(true)
     const handleSaveBtn = (e) => {
         dispatch(saveInProgress({recipeId:recipeId, recipe:recipe}))
@@ -82,7 +99,6 @@ const EditInProgress = () => {
     }
     
     if(!recipe) return <div>Loading</div>
-    
     return (
         <div className="edit-inprogress">
             <RecipeTile isEdit={isEdit} recipe={recipe} edit={edit} />
@@ -107,11 +123,12 @@ const EditInProgress = () => {
                         return (
                             <div className="version" key={id}>
                                 <h3>Version {id+1}</h3>
-                                
                                 <RecipeInstructions 
                                     isEdit={isEdit && (id+1 === recipe.versions.length)} 
                                     ingredients={v.ingredients}
-                                    steps={v.steps}  
+                                    steps={v.steps} 
+                                    additions={findAdded(id)}
+                                    deletions={findRemoved(id)}
                                     edit={edit} />
                                 {id+1 < recipe.versions.length ? 
                                     <button className="revert" version-key={id} onClick={handleRevertBtn}>Revert</button>
@@ -120,7 +137,6 @@ const EditInProgress = () => {
                                 }
                             </div>
                         )
-                       
                     })}
                     <button className="addversion" onClick={handleNewVersionBtn}>+</button>
             </div>

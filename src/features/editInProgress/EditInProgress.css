@@ -19,6 +19,7 @@
 .edit-inprogress .versions .version {
     position: relative;
     display: inline-block;
+    width: 900px;
     margin: 0 1vw;
     scroll-margin: 0 400px;
 }
@@ -49,6 +50,7 @@
 }
 .edit-inprogress .version .revert:hover {
     border-color: transparent;
+    cursor: pointer;
 }
 .edit-inprogress .version .current {
     border: none;
@@ -69,5 +71,8 @@
     padding-left: 100px;
     border: none;
     font-size: 5em;
-
+}
+.edit-inprogress .addversion:hover {
+    color: black;
+    cursor: pointer;
 }

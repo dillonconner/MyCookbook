@@ -8,11 +8,28 @@
 }
 
 .recipe-tile .image {
+    position: relative;
     width: 30%;
 }
 .recipe-tile img {
     height: 100%;
     width: 100%;
+}
+.recipe-tile .file-upload {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 60%;
+    padding: 0 20%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.recipe-tile .file-select {
+    background-color: aliceblue;
+    font-size: 1em;
 }
 
 .recipe-tile .info {
@@ -48,7 +65,7 @@
     
 }
 
-.recipe-tile input {
+.recipe-tile .text-input {
     background-color: var(--lightSteelBlue);
     width: 100px;
     padding-left: 1vw;
