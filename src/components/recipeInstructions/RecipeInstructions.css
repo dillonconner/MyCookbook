@@ -1,53 +1,50 @@
 .recipe-instructions {
+    background-color: whitesmoke;
     position: relative;
-    background-color: antiquewhite;
     display: flex;
-    justify-content: space-evenly;
-    width: 100%;
+    width: 900px;
     font-size: 1vw;
-    padding-bottom: 10vh;
+    padding-bottom: 20px;
     white-space: normal;
-}
-.recipe-instructions .list {
-    background-color: antiquewhite;
     text-align: center;
-    align-items: center;
-    width: 50%;
-}
-.recipe-instructions .instructions div {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    box-shadow: -5px 10px rgba(0, 0, 0,0.2);
 }
 
+.recipe-instructions .ingredients {
+    width: 40%;
+}
+.recipe-instructions .steps {
+    width: 60%;
+}
+
+.recipe-instructions .steps div {
+    display: flex;
+    width: 100%;
+}
 .recipe-instructions .display li {
-    font-size: 1.5em;
+    font-size: 1.25em;
     text-align: left;
     margin-bottom: 1vh;
-    width:100%;
 }
 
 .recipe-instructions h3 {
     font-size: 1.5em;
     margin-top: 3vh;
+    text-decoration: underline;
 }
 
 /*    Editable     */
 
 .recipe-instructions textarea {
     background-color: transparent;
-    font-size: 1.25em;
+    width: 80%;
+    font-size: 1em;
     border: none;
     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
     margin: 2vh 1vw;
     overflow:hidden;
-    width:80%;
-    resize: none;
-    margin-top: 1vh;
-}
-
-.recipe-instructions .steps {
     resize:vertical;
+    margin-top: 1vh;
 }
 
 .recipe-instructions li {
@@ -57,17 +54,10 @@
 .recipe-instructions input {
     background-color: transparent;
     margin-top: 3vh;
-    font-size: 1.5em;
+    font-size: 1.25em;
     border: none;
     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-}
-
-.recipe-instructions label {
-    font-size: 1.5em;
-    display: inline-block;
-    width: 8vw;
-    margin-right: 10px;
-    text-align: right;
+    width: 70%;
 }
 
 .recipe-instructions .removeItem {
@@ -80,11 +70,9 @@
 }
 .recipe-instructions .addItem {
     background-color: transparent;
+    color: gray;
     border: none;
     font-size: 2em;
     padding-top: 1vh;
     width: 80%;
-}
-.recipe-instructions input {
-    width: 70%;
 }

@@ -1,8 +1,5 @@
 .recipe-tile {
-    position: relative;
     display: flex;
-    background-color: antiquewhite;
-    border-bottom: 2px solid rgb(39, 39, 39);
     width: 75vw;
     height: 50vh;
     padding-bottom: 1vh;
@@ -10,21 +7,26 @@
     text-align: left;
 }
 
-.recipe-tile .info {
-    width: 23vw;
-    padding-left: 2vw;
-}
 .recipe-tile .image {
-    width: 25vw;
+    width: 30%;
 }
-
 .recipe-tile img {
     height: 100%;
     width: 100%;
 }
 
-.recipe-tile .user-info {
+.recipe-tile .info {
+    position: relative;
+    padding-left: 2vw;
+    width: 70%;
+}
+
+.recipe-tile .details {
     display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    gap: 10px;
 }
 
 /*    Editable     */
@@ -35,46 +37,40 @@
 }
 
 .recipe-tile textarea {
-    background-color: transparent;
+    background-color: var(--lightSteelBlue);
+    width: 95%;
+    margin-top: 10px;
     font-size: 1.25em;
     border: none;
     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
     overflow:hidden;
-    width:95%;
     resize: none;
-    margin-top: 1vh;
+    
 }
 
 .recipe-tile input {
-    background-color: transparent;
-    width: 30%;
-    margin-top: 3vh;
+    background-color: var(--lightSteelBlue);
+    width: 100px;
     padding-left: 1vw;
-    font-size: 1.5em;
+    font-size: 1em;
     border: none;
     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
 }
 
 .recipe-tile label {
-    font-size: 1.5em;
+    font-size: 1em;
     width: max-content;
-    margin-right: 10px;
+}
+.recipe-tile p{
+    font-size: 1em;
+    margin: 15px 10px;
 }
 
 .recipe-tile .tags {
     display: flex;
-    position: absolute;
     width: 25vw;
-    bottom: 0;
-    left: 0;
     align-items: center;
 }
-
-.recipe-tile p {
-    font-size: 1.25em;
-    margin-right: 1vw;
-}
-
 .recipe-tile button {
     font-size: inherit;
 }

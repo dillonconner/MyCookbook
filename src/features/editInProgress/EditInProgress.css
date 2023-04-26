@@ -8,11 +8,12 @@
 
 .edit-inprogress .versions {
     position: relative;
-    width: 50vw;
-    padding: 0 20vw;
+    width: 50%;
+    padding: 0 20vw 100px;
     overflow-x: scroll;
     white-space: nowrap;
     margin-bottom: 10vh;
+    border-top: 5px solid var(--tomatoRed);
 }
 
 .edit-inprogress .versions .version {
@@ -37,7 +38,36 @@
 }
 
 .edit-inprogress .version .revert {
+    color:azure;
+    background-color: var(--tomatoRed);
+    font-size: 1.25em;
+    border-radius: 5px;
+    padding: 5px;
     position: absolute;
     top:8vh;
     right: 1vw;
+}
+.edit-inprogress .version .revert:hover {
+    border-color: transparent;
+}
+.edit-inprogress .version .current {
+    border: none;
+    background-color: var(--lightGreen);
+    font-size: 1.25em;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    top:8vh;
+    right: 1vw;
+}
+
+.edit-inprogress .addversion {
+    background-color: transparent;
+    color: gray;
+    position: absolute;
+    top: 200px;
+    padding-left: 100px;
+    border: none;
+    font-size: 5em;
+
 }

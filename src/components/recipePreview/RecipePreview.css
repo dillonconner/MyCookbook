@@ -1,17 +1,19 @@
 .recipe-preview {
     position: relative;
-    background-color: antiquewhite;
-    border-bottom: 2px solid rgb(39, 39, 39);
-    width: 25vw;
-    height: 50vh;
+    width: 400px;
     padding-bottom: 1vh;
     margin: 10px 10px;
     font-size: 10px;
+    color: black;
     text-align: left;
 }
+.recipe-preview:hover {
+    color: red;
+    background-color: var(--lightSteelBlue);
+}
+
 
 a:-webkit-any-link {
-    color: black;
     text-decoration: none;
     cursor: pointer;
 }
@@ -19,7 +21,7 @@ a:-webkit-any-link {
 
 .recipe-preview .image {
     width: inherit;
-    height: 70%;
+    height: 350px;
 }
 .recipe-preview img {
     height: 100%;
@@ -29,11 +31,13 @@ a:-webkit-any-link {
 .recipe-preview .info {
     padding-left: 1vw;
 }
-.recipe-preview .title {
+.recipe-preview .title{
     font-size: 2em;
     font-weight: bold;
+    color: inherit;
 }
 .recipe-preview p {
     font-size: 1.25em;
     margin-right: 1vw;
+    color: black;
 }

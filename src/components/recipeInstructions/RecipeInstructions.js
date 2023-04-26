@@ -31,14 +31,14 @@ const RecipeInstructions = ({ingredients, steps, isEdit, edit}) => {
     return (
         <div className='recipe-instructions'>
             {!isEdit ? 
-                <div className='list display'>
+                <div className='ingredients display'>
                     <h3>Ingredients</h3>
                     <ul>
                         {ingredients.map((ingredient, id) => <li key={id}>{ingredient}</li>)}
                     </ul>
                 </div> 
                 : 
-                <div className='list ingredients'>
+                <div className='ingredients edit'>
                     <h3>Ingredients</h3>
                     {ingredients.map((ingredient, id) => {
                         return ( <li key={id}>
@@ -51,19 +51,19 @@ const RecipeInstructions = ({ingredients, steps, isEdit, edit}) => {
                 </div> 
             }
             {!isEdit ? 
-                <div className='list display'>
-                    <h3>Ingredients</h3>
+                <div className='steps display'>
+                    <h3>Instructions</h3>
                     <ol>
                         {steps.map((step, id) => <li key={id}>{step}</li>)}
                     </ol>
                 </div> 
                 : 
-                <div className='list instructions'>
+                <div className='steps edit'>
                     <h3>Instructions</h3>
                     {steps.map((step, id) => {
                         return (<div key={id}>
                                     <p>{id + 1}.</p>
-                                    <textarea className='steps' rows={3} data-key={id} value={step} onChange={handleStepChange} />
+                                    <textarea rows={3} data-key={id} value={step} onChange={handleStepChange} />
                                     <button className={`removeItem`} to-remove={step} list='steps' onClick={handleRemoveListItem}>-</button>
                                 </div>)
                     })}

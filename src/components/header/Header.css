@@ -1,7 +1,8 @@
 .header {
     overflow: hidden;
     padding: 20px 10px;
-    background-color: bisque;
+    background-color: var(--lightSteelBlue);
+    border-bottom: 10px solid var(--tomatoRed);
   }
   
   .header a {

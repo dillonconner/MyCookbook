@@ -43,7 +43,7 @@ const EditRecipe = () => {
         };
         delete newInProgress.ingredients;
         delete newInProgress.steps;
-        dispatch(addInProgress(newInProgress));
+        dispatch(addInProgress({recipe:newInProgress}));
         dispatch(removeRecipe({recipeId:recipeId}));
         navigate(-1);
     }

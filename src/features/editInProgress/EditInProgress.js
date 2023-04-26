@@ -113,12 +113,16 @@ const EditInProgress = () => {
                                     ingredients={v.ingredients}
                                     steps={v.steps}  
                                     edit={edit} />
-                                {id+1 < recipe.versions.length &&<button className="revert" version-key={id} onClick={handleRevertBtn}>Revert</button>}
+                                {id+1 < recipe.versions.length ? 
+                                    <button className="revert" version-key={id} onClick={handleRevertBtn}>Revert</button>
+                                    :
+                                    <button className="current">Current</button>
+                                }
                             </div>
                         )
                        
                     })}
-                    <button onClick={handleNewVersionBtn}>+</button>
+                    <button className="addversion" onClick={handleNewVersionBtn}>+</button>
             </div>
         </div>
     )

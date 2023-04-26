@@ -1,48 +1,53 @@
 import React, { useState } from 'react';
 import './InProgressTile.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const InProgressTile = ({recipe}) => {
-    const [optionsHidden, setOptionsHidden] = useState(true);
 
+    const navigate = useNavigate();
+    console.log(recipe);
     const {ingredients, steps} = recipe.versions.at(-1);
     
+    const handleClick = (e) => {
+        navigate(`in-progress/${recipe._id}`);
+    }
+
     return (
-        <div className='in-progress' >
-            <div className='description'>
-                <h3>{recipe.name}</h3>
+        <div className='in-progress' onClick={handleClick}>
+            <div className='image-container'>
                 <img src={recipe.imgURL} alt=''/>
-                <p>{recipe.description}</p>
             </div>
-            <div className='ingredients'>
-                <h3>Ingredients</h3>
-                <ul>
-                    {ingredients.map((item, id) => {
-                        return <li key={id}>{item}</li>
-                    })}
-                </ul>
+            <div className='info'>
+                <div className='about'>
+                    <h2>{recipe.name}</h2>
+                    <p>{recipe.description}</p>
+                </div>
+                <div className='directions'>
+                    <div className='list'>
+                        <h3>Ingredients</h3>
+                        <ul>
+                            {ingredients.map((item, id) => {
+                                return <li key={id}>{item}</li>
+                            })}
+                        </ul>
+                    </div>
+                    <div className='list'>
+                        <h3>Instructions</h3>
+                        <ol>
+                            {steps.map((item, id) => {
+                                return <li key={id}>{item}</li>
+                            })}
+                        </ol>
+                    </div>
+                </div>
                 
             </div>
-            <div className='instructions'>
-                <h3>Instructions</h3>
-                <ol>
-                    {steps.map((item, id) => {
-                        return <li key={id}>{item}</li>
-                    })}
-                </ol>
-            </div>
-            {!optionsHidden ? 
-            <div className='options' onMouseLeave={() => setOptionsHidden(true)}>
-                <Link to={`in-progress/${recipe._id}`}><button>Versions</button></Link>
-                <button>Finalize</button>
-                <button>Delete</button>
-            </div> :
-            <div className='icon'  
-                onMouseEnter={() => setOptionsHidden(false)} >
-                <p>|||</p>
-            </div>
+
+
+
+
+
             
-            }
             
         </div>
     )
