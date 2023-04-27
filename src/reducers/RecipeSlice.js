@@ -16,6 +16,7 @@ export const addRecipe = createAsyncThunk(
 export const loadRecipes = createAsyncThunk(
     'recipes/loadRecipes',
     async () => {
+        console.log('trynna load');
         const resp = await fetch(`${baseUrl}/recipes/`);
         const json = await resp.json();
         return json.data;

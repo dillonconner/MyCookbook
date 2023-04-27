@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './InProgressTile.css';
 import { useNavigate } from 'react-router-dom';
+import { makeAzureUrl } from '../../util/azureStorage';
+import noImage from '../../util/no_image_found.jpg';
 
 const InProgressTile = ({recipe}) => {
 
     const navigate = useNavigate();
-    console.log(recipe);
     const {ingredients, steps} = recipe.versions.at(-1);
     
     const handleClick = (e) => {
@@ -15,7 +16,7 @@ const InProgressTile = ({recipe}) => {
     return (
         <div className='in-progress' onClick={handleClick}>
             <div className='image-container'>
-                <img src={recipe.imgURL} alt=''/>
+                <img src={makeAzureUrl(recipe._id)} onError={(e) => e.target.src = noImage} alt='food'/>
             </div>
             <div className='info'>
                 <div className='about'>
