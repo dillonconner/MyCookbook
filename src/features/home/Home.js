@@ -6,19 +6,26 @@ import { selectInProgress, loadInProgress, addInProgress } from "../../reducers/
 
 import InProgressTile from "../../components/inProgress/InProgressTile";
 import RecipePreview from "../../components/recipePreview/RecipePreview";
-import UserCard from "../../components/profile/UserCard";
+import useDebounce from '../../hooks/useDebounce';
 
 const Home = () => {
     const dispatch = useDispatch();
     const inProgress = useSelector(selectInProgress);
     const recipes = useSelector(selectRecipes);
     
+    
     const [searchTerm, setSearchTerm] = useState('');
+    const debouncedSearch = useDebounce(searchTerm, 500);
+    const [searchedRecipes, setSearchedRecipes] = useState(recipes);
 
     useEffect(() => {
-        dispatch(loadRecipes());
         dispatch(loadInProgress());
-    }, []);
+        dispatch(loadRecipes());
+    }, [dispatch]);
+
+    useEffect(() => {
+        setSearchedRecipes(recipes.filter((r) => r.name.toLowerCase().includes(debouncedSearch) || r.tags.includes(debouncedSearch)));
+    }, [recipes, debouncedSearch])
 
 
     const handleNewRecipeBtn = () => {
@@ -30,15 +37,15 @@ const Home = () => {
             tags: [],
             servings: 1,
             versions: [{
-                ingredients: ['enter Ingredients'], 
-                steps: ['enter Steps']
+                ingredients: [''], 
+                steps: ['']
             }]};
         dispatch(addInProgress({recipe: newInProgress}));
-        
+        //go to new recipe
     }
 
     const handleSearchChange = (e) => {
-        setSearchTerm(e.target.value);
+        setSearchTerm(e.target.value.toLowerCase());
     }
 
     return (
@@ -58,14 +65,14 @@ const Home = () => {
                 <h2>Finished Recipes</h2>
                 <input className="search-bar" 
                 type="text" 
-                placeholder="search for recipe" 
+                placeholder="Search for recipe (name or tag)" 
                 value={searchTerm}
                 onChange={handleSearchChange} />
             </div>
             
             <div className="preview-area">
-                {recipes.length > 0 ?
-                    recipes.map((r, id) => <RecipePreview key={id} recipe={r}/>)
+                {searchedRecipes.length > 0 ?
+                    searchedRecipes.map((r, id) => <RecipePreview key={id} recipe={r}/>)
                     :
                     <h2>No Finished Recipes Found</h2>}
             </div>
