@@ -1,0 +1,40 @@
+.login {
+    position:relative;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    width:min-content;
+    margin: 10vh 35vw;
+    padding: 5vh 5vw;
+}
+
+.login input {
+    font-size: 1.75em;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.login .login-submit {
+    font-size: 1.75em;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.login .login-type-btn {
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.login .login-type-btn:hover {
+    cursor: pointer;
+}
+
+.login .delete {
+    position: absolute;
+    bottom: -200px;
+    right: -500px;
+}
+

@@ -3,7 +3,7 @@
 import { BlobServiceClient } from "@azure/storage-blob";
 
 const containerName = `images`;
-const sasToken = 'sp=racwdl&st=2023-04-27T21:23:34Z&se=2023-04-28T05:23:34Z&spr=https&sv=2021-12-02&sr=c&sig=m9z7lICqNDeWlyF2DhY1GpeuhyJoT2oEmHbowkOKMmA%3D';
+const sasToken = 'sp=racwdl&st=2023-05-03T20:01:56Z&se=2023-05-11T04:01:56Z&spr=https&sv=2022-11-02&sr=c&sig=Y1Dn3dXT9f4MAPwtcI8caYtYIpwUU9%2BdmfchCRWi6S8%3D';
 const storageAccountName = 'cookbookimages';
 
 const uploadUrl = `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`;
@@ -25,5 +25,6 @@ const uploadFileToBlob = async (file, id) => {
   if (!file) return;
   await createBlobInContainer(file, id);
 };
-export const makeAzureUrl = (id) => `https://${storageAccountName}.blob.core.windows.net/${containerName}/${id}?${sasToken}`;
+//export const makeAzureUrl = (id) => `https://${storageAccountName}.blob.core.windows.net/${containerName}/${id}?${sasToken}`;
+export const makeAzureUrl = (id) => `https://${storageAccountName}.blob.core.windows.net/${containerName}/${id}`;  //anonymous read access allowed
 export default uploadFileToBlob;

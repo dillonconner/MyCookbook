@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/28341994-9046-47cc-9a0b-bf4ba7391200/resourceGroups/MyCookbook_group/providers/Microsoft.Web/sites/mycookbook-app",
+    "appService.deploySubpath": "."
+}
