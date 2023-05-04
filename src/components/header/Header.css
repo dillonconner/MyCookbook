@@ -23,4 +23,16 @@
   
   .header-right {
     float: right;
+    margin-right: 50px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .header img {
+    width: 60px;
+    border-radius: 30px;
+  }
+  .header img:hover {
+    cursor: pointer;
+    background-color: var(--lightGreen);
   }

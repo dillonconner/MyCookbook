@@ -1,0 +1,22 @@
+.options-card {
+    background-color: var(--lightSteelBlue);
+    position: absolute;
+    top: 110px;
+    right: 0;
+    padding: 10px 10px 2px 10px;
+    text-align: left;
+    font-size: 1.5em;
+    z-index: 3;
+}
+.options-card ul {
+    margin: 0;
+}
+.options-card li:hover {
+    text-decoration: underline;
+}
+
+.options-card button {
+    width: 100%;
+    font-size: 1em;
+    margin-top: 10px;
+}
