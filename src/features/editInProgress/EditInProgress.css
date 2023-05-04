@@ -5,6 +5,15 @@
     flex-direction: column;
     margin-top: 1vh;
 }
+.edit-inprogress .back-btn {
+    position: absolute;
+    top:50px;
+    left:40px;
+    border-radius: 70px;
+}
+.edit-inprogress .back-btn:hover {
+    background-color: var(--lightSteelBlue);
+}
 
 .edit-inprogress .versions {
     position: relative;

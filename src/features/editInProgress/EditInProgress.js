@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from "react-router-dom";
 import './EditInProgress.css';
+import backArrow from '../../util/back-arrow.png';
 
 import RecipeTile from "../../components/recipeTile/RecipeTile";
 import RecipeInstructions from "../../components/recipeInstructions/RecipeInstructions";
@@ -17,12 +18,13 @@ const EditInProgress = () => {
     const [ isEdit, setIsEdit ] = useState(false);
     
     const currInProgress = useSelector(state => state.inProgress.inProgress.find(r => r._id === recipeId));
-    const [recipe, setRecipe] = useState(currInProgress ? currInProgress : 
-                                                            {versions:[ {ingredients: [], steps: []} ]});
+    const [recipe, setRecipe] = useState(currInProgress ? currInProgress : {versions:[ {ingredients: [], steps: []} ]});
 
     if(!currInProgress)  dispatch(loadInProgress());
     useEffect(() => {
         setRecipe(currInProgress);
+        const versions = document.getElementsByClassName('versions');
+        versions[0].scrollTo(versions[0].scrollWidth, 0);
     }, [currInProgress])
 
     const edit = (value, prop) => {
@@ -101,6 +103,7 @@ const EditInProgress = () => {
     if(!recipe) return <div>Loading</div>
     return (
         <div className="edit-inprogress">
+            <img className="back-btn" src={backArrow} alt="back" onClick={e => navigate('/')} />
             <RecipeTile isEdit={isEdit} recipe={recipe} edit={edit} />
             
                 {!isEdit ? 

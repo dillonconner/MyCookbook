@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
 import './EditRecipe.css';
+import backArrow from '../../util/back-arrow.png';
+
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
+
 import RecipeTile from "../../components/recipeTile/RecipeTile";
 import RecipeInstructions from "../../components/recipeInstructions/RecipeInstructions";
 import { loadRecipes, saveRecipe, removeRecipe } from "../../reducers/RecipeSlice";
@@ -57,11 +60,14 @@ const EditRecipe = () => {
     if(!recipe) return <div>Loading</div>
     return (
         <div className="edit-recipe">
+            <img className="back-btn" src={backArrow} alt="back" onClick={e => navigate('/')} />
             <div className="buttons">
-                {!isEdit ? <button onClick={handleEditBtn}>Edit</button> : 
-                            <button onClick={handleSaveBtn}>Save</button>}
+                {!isEdit ? <button onClick={handleEditBtn}>Edit</button> 
+                            : 
+                            <button onClick={handleSaveBtn}>Save</button>
+                }
                 {!isEdit && <button onClick={handleToInProgressBtn}>In Progress</button>}
-                <button onClick={handleDeleteBtn}>Delete Recipe</button>
+                <button onClick={handleDeleteBtn}>Delete</button>
             </div>
             <RecipeTile isEdit={isEdit} recipe={recipe} edit={edit} />
             <div className="instructions-container">
