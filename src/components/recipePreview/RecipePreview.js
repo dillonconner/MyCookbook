@@ -16,6 +16,7 @@ const RecipePreview = ({recipe}) => {
                 <p>{`Cook Time: ${recipe.time}`}</p>
                 <p>{`Servings: ${recipe.servings}`}</p>
                 <p>Tags:</p>
+                {recipe.tags.map((t) => <button className='tag'>{t}</button>)}
             </div>
             
         </div>

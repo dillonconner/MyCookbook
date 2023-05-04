@@ -43,7 +43,7 @@ const RecipeInstructions = ({isEdit, ingredients, steps, additions, deletions, e
                         
                     </ul>
                     
-                    {deletions && 
+                    {deletions && deletions.ingredients.length > 0 &&
                         <div>
                             <p>Removed</p>
                             {deletions.ingredients.map((ingredient, id) => <li className='removedItem' key={id}>{ingredient}</li>)}
@@ -56,7 +56,7 @@ const RecipeInstructions = ({isEdit, ingredients, steps, additions, deletions, e
                     {ingredients.map((ingredient, id) => {
                         return ( <li key={id}>
                                     <input data-key={id} value={ingredient} onChange={handleIngredientChange} />
-                                    <button className={`removeItem`} to-remove={ingredient} list='ingredients' onClick={handleRemoveListItem}>-</button>
+                                    <button className='removeItem' to-remove={ingredient} list='ingredients' onClick={handleRemoveListItem}>-</button>
                                 </li>)
                     })}
                     <button className='addItem' onClick={(e) => edit([...ingredients, ''], 'ingredients')}>+</button>
@@ -75,7 +75,7 @@ const RecipeInstructions = ({isEdit, ingredients, steps, additions, deletions, e
                             steps.map((step, id) => <li key={id}>{step}</li>)
                         }
                     </ol>
-                    {deletions && 
+                    {deletions && deletions.steps.length > 0 &&
                         <div>
                             <p>Removed</p>
                             {deletions.steps.map((step, id) => <li className='removedItem' key={id}>{step}</li>)}
@@ -89,7 +89,7 @@ const RecipeInstructions = ({isEdit, ingredients, steps, additions, deletions, e
                         return (<div key={id} className='step-li'>
                                     <p>{id + 1}.</p>
                                     <textarea rows={3} data-key={id} value={step} onChange={handleStepChange} />
-                                    <button className={`removeItem`} to-remove={step} list='steps' onClick={handleRemoveListItem}>-</button>
+                                    <button className='removeItem' to-remove={step} list='steps' onClick={handleRemoveListItem}>-</button>
                                 </div>)
                     })}
                     <button className='addItem' onClick={(e) => edit([...steps, ''], 'steps')}>+</button>

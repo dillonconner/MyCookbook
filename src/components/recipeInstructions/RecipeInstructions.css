@@ -48,7 +48,7 @@
 }
 
 .recipe-instructions li {
-    margin: 0 2vw;
+    margin-left: 15px;
 }
 
 .recipe-instructions input {

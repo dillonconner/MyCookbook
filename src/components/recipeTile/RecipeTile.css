@@ -17,18 +17,19 @@
 }
 .recipe-tile .file-upload {
     background-color: rgba(0, 0, 0, 0.5);
-    height: 100%;
-    width: 60%;
-    padding: 0 20%;
+    width: 70%;
+    padding: 95% 15% 5px;
     position: absolute;
-    top: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
 }
 .recipe-tile .file-select {
     background-color: aliceblue;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+.recipe-tile .upload-btn{
     font-size: 1em;
 }
 
@@ -65,9 +66,17 @@
     
 }
 
-.recipe-tile .text-input {
+.recipe-tile .time-input {
     background-color: var(--lightSteelBlue);
     width: 100px;
+    padding-left: 1vw;
+    font-size: 1em;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+.recipe-tile .serving-input {
+    background-color: var(--lightSteelBlue);
+    width: 30px;
     padding-left: 1vw;
     font-size: 1em;
     border: none;
@@ -85,9 +94,22 @@
 
 .recipe-tile .tags {
     display: flex;
-    width: 25vw;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 2px;
 }
-.recipe-tile button {
-    font-size: inherit;
+.recipe-tile .tag-input {
+    background-color: var(--lightSteelBlue);
+    width: 100px;
+    padding-left: 1vw;
+    font-size: 1em;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+.recipe-tile .tag {
+    font-size: 1em;
+}
+.recipe-tile .removable-tag:hover:after{
+    color: var(--tomatoRed);
+    content: " X";
 }
