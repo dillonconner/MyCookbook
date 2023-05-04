@@ -6,7 +6,7 @@ export const addInProgress = createAsyncThunk(
     async ({recipe}) => {
         const resp = await fetch(`${baseUrl}/inProgress/`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', 'authorization' : `Bearer ${localStorage.getItem('token')}`},
             body: JSON.stringify(recipe),
         }).then(response => response.json());
         return resp.data;
@@ -15,7 +15,9 @@ export const addInProgress = createAsyncThunk(
 export const loadInProgress = createAsyncThunk(
     'inProgress/loadInProgress',
     async () => {
-        const resp = await fetch(`${baseUrl}/inProgress/`);
+        const resp = await fetch(`${baseUrl}/inProgress/`, {
+            headers: { 'authorization' : `Bearer ${localStorage.getItem('token')}`}
+        });
         const json = await resp.json();
         return json.data;
     }
@@ -25,7 +27,7 @@ export const saveInProgress = createAsyncThunk(
     async ({recipeId, recipe}) => {
         const resp = await fetch(`${baseUrl}/inProgress/${recipeId}`,{
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', 'authorization' : `Bearer ${localStorage.getItem('token')}` },
             body: JSON.stringify(recipe),
         });
         const json = await resp.json();
@@ -37,6 +39,7 @@ export const removeInProgress = createAsyncThunk(
     async ({recipeId}) => {
         const resp = await fetch(`${baseUrl}/inProgress/${recipeId}`, {
             method: 'DELETE',
+            headers: {'authorization' : `Bearer ${localStorage.getItem('token')}`}
         }).then(response => response.json());
         return resp;
     }

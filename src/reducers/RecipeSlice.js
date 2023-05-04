@@ -6,7 +6,7 @@ export const addRecipe = createAsyncThunk(
     async ({recipe}) => {
         const resp = await fetch(`${baseUrl}/recipes/`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', 'authorization' : `Bearer ${localStorage.getItem('token')}` },
             body: JSON.stringify(recipe),
         }).then(response => response.json());
         return resp.data;
@@ -17,7 +17,9 @@ export const loadRecipes = createAsyncThunk(
     'recipes/loadRecipes',
     async () => {
         console.log('trynna load');
-        const resp = await fetch(`${baseUrl}/recipes/`);
+        const resp = await fetch(`${baseUrl}/recipes/`, {
+            headers: {'authorization' : `Bearer ${localStorage.getItem('token')}`}
+        });
         const json = await resp.json();
         return json.data;
     }
@@ -28,7 +30,7 @@ export const saveRecipe = createAsyncThunk(
     async ({recipeId, recipe}) => {
         const resp = await fetch(`${baseUrl}/recipes/${recipeId}`,{
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', 'authorization' : `Bearer ${localStorage.getItem('token')}` },
             body: JSON.stringify(recipe),
         });
         const json = await resp.json();
@@ -41,6 +43,7 @@ export const removeRecipe = createAsyncThunk(
     async ({recipeId}) => {
         const resp = await fetch(`${baseUrl}/recipes/${recipeId}`, {
             method: 'DELETE',
+            headers: {'authorization' : `Bearer ${localStorage.getItem('token')}`}
         }).then(response => response.json());
         return resp;
     }
