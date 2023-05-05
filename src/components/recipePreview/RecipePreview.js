@@ -6,7 +6,7 @@ import noImage from '../../util/no_image_found.jpg';
 
 const RecipePreview = ({recipe}) => {
     return (
-        <Link to={`recipe/${recipe._id}`}>
+        <Link to={`/recipe/${recipe._id}`}>
         <div className='recipe-preview' >
             <div className='image'>
             <img src={makeAzureUrl(recipe._id)} onError={(e) => e.target.src = noImage} alt='food'/>

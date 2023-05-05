@@ -10,7 +10,7 @@ const InProgressTile = ({recipe}) => {
     const {ingredients, steps} = recipe.versions.at(-1);
     
     const handleClick = (e) => {
-        navigate(`in-progress/${recipe._id}`);
+        navigate(`/in-progress/${recipe._id}`);
     }
 
     return (

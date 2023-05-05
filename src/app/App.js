@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { ProvideAuth, RequireAuth } from '../hooks/use-auth';
 
 import Header from '../components/header/Header';
 import Login from '../features/login/Login';
@@ -10,22 +11,19 @@ import EditRecipe from '../features/editRecipe/EditRecipe';
 import EditInProgress from '../features/editInProgress/EditInProgress';
 
 function App() {
-
-  const auth = localStorage.getItem('token');
-
   return (
     <div className="App">
-      <Header />
-      <Routes>
-        <Route path='login' element={<Login/>} />
-        
-        <Route path='' element={auth ? <Home /> : <Navigate to='/login'/>} />
-        <Route path='recipe/:recipeId' element={auth ? <EditRecipe/> : <Navigate to='/login'/>} />
-        <Route path='in-progress/:recipeId' element={auth ? <EditInProgress/> : <Navigate to='/login'/>} />
-        <Route path='new-recipe' element={auth ? <NewRecipe/> : <Navigate to='/login'/>} />
-
-      </Routes>
-
+      <ProvideAuth>
+        <Header />
+        <Routes>
+          <Route path='login' element={<Login/>} />
+          
+          <Route path='home' element={<RequireAuth><Home /></RequireAuth>} />
+          <Route path='recipe/:recipeId' element={<RequireAuth><EditRecipe/></RequireAuth>} />
+          <Route path='in-progress/:recipeId' element={<RequireAuth><EditInProgress/></RequireAuth>} />
+          <Route path='new-recipe' element={<RequireAuth><NewRecipe/></RequireAuth>} />
+        </Routes>
+      </ProvideAuth>
     </div>
   );
 }

@@ -1,35 +1,28 @@
 import './Login.css';
-import React, { useState } from "react";
-import { baseUrl } from "../../util/apiConfig";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useAuth } from '../../hooks/use-auth';
+import loadingIcon from '../../util/Loading_icon.gif';
 
 const Login = () => {
 
     const navigate = useNavigate();
+    const auth = useAuth();
     const [isSignUp, setIsSignUp] = useState(false);
     const [form, setForm] = useState({username: '', password: ''});
 
-    const handleSubmit = async (e) => {
+    useEffect(() => {
+        if(auth.user && !auth.error){
+            navigate('/home', {replace:true});
+        }
+    }, [auth.user])
+    
+    const handleSubmit = (e) => {
         e.preventDefault();
-        try{
-            const url = isSignUp ? `${baseUrl}/user/signup` : `${baseUrl}/user/login`;
-            const resp = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({username: form.username, password: form.password})
-            }).then(response => response.json());
-            
-            if(resp.success) {
-                localStorage.setItem('token', resp.token);
-                navigate('/', {replace: true});
-            }
-            else {
-                alert('invalid username or password')
-                console.log(resp);
-            }
-        } catch(err) {
-            alert(err);
+        if(isSignUp) {
+            auth.signup(form.username, form.password);
+        }else {
+            auth.login(form.username, form.password);
         }
     }
 
@@ -62,6 +55,8 @@ const Login = () => {
                     placeholder="password"
                     required />
                 <button className='login-submit'>{isSignUp ? 'Sign Up' : 'Log In'}</button>
+                {auth.error && <p>{auth.error}</p>}
+                {auth.isLoading && <img src={loadingIcon} alt='loading' />}
             </form>
             <div className='delete'>
                 <p>testuser   password</p>

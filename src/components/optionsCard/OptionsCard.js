@@ -1,13 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './OptionsCard.css';
+import { useAuth } from '../../hooks/use-auth';
 
 const OptionsCard = ({onMouseLeave}) => {
     
     const navigate = useNavigate();
+    const auth = useAuth();
 
     const handleLogout = (e) => {
-        localStorage.removeItem('token');
+        auth.logout();
         navigate('/login');
     }
 
