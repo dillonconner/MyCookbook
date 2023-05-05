@@ -1,11 +1,35 @@
 .login {
-    position:relative;
-    background-color: antiquewhite;
-    display: flex;
-    flex-direction: column;
+    background-image: url('../../util/desktop-1600x900.jpg');
+    background-size: 100vw 100vh;
+    height:100%;
+    width: 100%;
+    position: absolute;
+    top:0;
+}
+
+.login .header {
+    background-color: var(--lightSteelBlue);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-bottom: 5px solid var(--tomatoRed) ;
+    font-size: 1.5em;
+    padding: 0;
+}
+
+.login-form  {
+    position:absolute;
+    top: 30%;
+    left: 40%;
+    background-color: rgba(255, 255, 255, 0.8);
     width:min-content;
-    margin: 10vh 35vw;
     padding: 5vh 5vw;
+    border-radius: 15px;
+    box-shadow: -10px 15px rgba(0, 0, 0,0.6);
+}
+
+.login .large {
+    font-size: 2em;
 }
 
 .login input {
@@ -14,9 +38,32 @@
     border-radius: 5px;
 }
 
+.login .remember-box {
+    float: left;
+}
+.login .remember-label {
+    float: left;
+    margin-top: 5px;
+}
+.login .forgot-password {
+    float: right;
+    border: none;
+    background-color: transparent;
+    margin-top: 5px;
+}
+.login .forgot-password:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login .error {
+    color: var(--tomatoRed);
+    width: 100%;
+    float: left;
+}
+
 .login .login-submit {
     font-size: 1.75em;
-    margin-top: 10px;
     border-radius: 5px;
     width: 100%;
 }
@@ -32,9 +79,10 @@
     cursor: pointer;
 }
 
-.login .delete {
+.login .loading-icon {
+    height: 110px;
+    width: 110px;
     position: absolute;
-    bottom: -200px;
-    right: -500px;
+    bottom:2%;
+    right: 30%;
 }
-

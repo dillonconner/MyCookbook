@@ -15,7 +15,7 @@ const Login = () => {
         if(auth.user && !auth.error){
             navigate('/home', {replace:true});
         }
-    }, [auth.user])
+    }, [auth.user, auth.error])
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,43 +25,56 @@ const Login = () => {
             auth.login(form.username, form.password);
         }
     }
-
-    const onFormChange = (e) => {
-        setForm({...form, [e.target.name]: e.target.value});
+    const onFormChange = (e) => setForm({...form, [e.target.name]: e.target.value});
+    const handleForgotPass = (e) => {
+        alert('Dang thats tough... Good luck remembering it');
+    }
+    const handleRememberChange = (e) => {
+        if(e.target.checked){
+            //make keep jwt
+        }else {
+            //make not keep jwt
+        }
     }
 
     return (
         <div className='login'>
-            <h1>My CookBook</h1>
-                {!isSignUp ? 
-                <h2>Log In or <button className='login-type-btn' onClick={e => setIsSignUp(true)}>Sign Up</button></h2>
-                :
-                <h2>Sign Up or <button className='login-type-btn' onClick={e => setIsSignUp(false)}>Log In</button></h2>
-                }
-            <form onSubmit={handleSubmit}>
-                <input 
-                    autoFocus
-                    type='text'
-                    name='username'
-                    value={form.username}
-                    onChange={onFormChange}
-                    placeholder="username"
-                    required />
-                <input 
-                    type="password"
-                    name="password"
-                    value={form.password}
-                    onChange={onFormChange}
-                    placeholder="password"
-                    required />
-                <button className='login-submit'>{isSignUp ? 'Sign Up' : 'Log In'}</button>
-                {auth.error && <p>{auth.error}</p>}
-                {auth.isLoading && <img src={loadingIcon} alt='loading' />}
-            </form>
-            <div className='delete'>
-                <p>testuser   password</p>
-                <p>uniquetest   password</p>
-                <p>dillonconner   rhodes234</p>
+            <div className='header'>
+                <h1>My CookBook</h1>
+            </div>
+            <div className='login-form'>
+                <div>
+                    <h2 className='large'>Welcome Back</h2>
+                    {!isSignUp ? 
+                    <h2>Log In or <button className='login-type-btn' onClick={e => setIsSignUp(true)}>Sign Up</button></h2>
+                    :
+                    <h2>Sign Up or <button className='login-type-btn' onClick={e => setIsSignUp(false)}>Log In</button></h2>
+                    }
+                </div>
+                <form onSubmit={handleSubmit}>
+                    <input 
+                        autoFocus
+                        type='text'
+                        name='username'
+                        value={form.username}
+                        onChange={onFormChange}
+                        placeholder="Username"
+                        required />
+                    <input 
+                        type="password"
+                        name="password"
+                        value={form.password}
+                        onChange={onFormChange}
+                        placeholder="Password"
+                        required />
+                        
+                    <input className='remember-box' type='checkbox' name='rememberme' onChange={handleRememberChange} />
+                    <label className='remember-label' htmlFor='rememberme'>Remember Me</label>
+                    <button className='forgot-password' onClick={handleForgotPass}>Forgot Password?</button>
+                    <p className='error'>{auth.error}</p>
+                    <button className='login-submit'>{isSignUp ? 'Sign Up' : 'Log In'}</button>
+                    {auth.isLoading && <img className='loading-icon' src={loadingIcon} alt='loading' />}
+                </form>
             </div>
             
         </div>
