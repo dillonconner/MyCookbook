@@ -6,27 +6,28 @@
     font-size: 10px;
     color: black;
     text-align: left;
-    box-shadow: -5px 10px rgba(0, 0, 0,0.2);
+    border-radius: 10px;
+    box-shadow: -5px 10px 4px rgba(0, 0, 0,0.4);
 }
 .recipe-preview:hover {
     color: red;
     background-color: var(--lightSteelBlue);
 }
 
-
 a:-webkit-any-link {
     text-decoration: none;
     cursor: pointer;
 }
 
-
 .recipe-preview .image {
     width: inherit;
     height: 350px;
+    border-radius: inherit;
 }
 .recipe-preview img {
     height: 100%;
     width: 100%;
+    border-radius: inherit;
 }
 
 .recipe-preview .info {

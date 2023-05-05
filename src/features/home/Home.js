@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
 import './Home.css';
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { selectRecipes, loadRecipes } from '../../reducers/RecipeSlice';
 import { selectInProgress, loadInProgress, addInProgress } from "../../reducers/InProgressSlice";
 
-import InProgressTile from "../../components/inProgress/InProgressTile";
+import InProgressTile from "../../components/inProgressTile/InProgressTile";
 import RecipePreview from "../../components/recipePreview/RecipePreview";
 import useDebounce from '../../hooks/useDebounce';
+import loadingIcon from '../../util/Loading_icon.gif';
 
 const Home = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const inProgress = useSelector(selectInProgress);
     const recipes = useSelector(selectRecipes);
     
     
     const [searchTerm, setSearchTerm] = useState('');
+    const [ searchLoading, setSearchLoading ] = useState(false);
     const debouncedSearch = useDebounce(searchTerm, 500);
     const [searchedRecipes, setSearchedRecipes] = useState(recipes);
 
@@ -25,8 +29,13 @@ const Home = () => {
 
     useEffect(() => {
         setSearchedRecipes(recipes.filter((r) => r.name.toLowerCase().includes(debouncedSearch) || r.tags.includes(debouncedSearch)));
-    }, [recipes, debouncedSearch])
+        setSearchLoading(false);
+    }, [recipes, debouncedSearch]);
 
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value.toLowerCase());
+        setSearchLoading(true);
+    };
 
     const handleNewRecipeBtn = () => {
         const newInProgress = {
@@ -41,11 +50,6 @@ const Home = () => {
                 steps: ['']
             }]};
         dispatch(addInProgress({recipe: newInProgress}));
-        //go to new recipe
-    }
-
-    const handleSearchChange = (e) => {
-        setSearchTerm(e.target.value.toLowerCase());
     }
 
     return (
@@ -63,6 +67,7 @@ const Home = () => {
             </div>
             <div className="preview-heading recipes">
                 <h2>Finished Recipes</h2>
+                {searchLoading && <img className="loading-img" src={loadingIcon} alt={null} />}
                 <input className="search-bar" 
                 type="text" 
                 placeholder="Search for recipe (name or tag)" 

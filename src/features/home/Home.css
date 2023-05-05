@@ -22,6 +22,12 @@
     font-size: 1.25em;
 }
 
+.home .loading-img {
+    position: absolute;
+    right: 360px;
+    width: 170px;
+}
+
 .home .search-bar {
     position: absolute;
     right: 135px;
@@ -33,4 +39,5 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    min-height: 80vh;
 }

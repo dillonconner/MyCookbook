@@ -3,6 +3,7 @@
     padding: 20px 10px;
     background-color: var(--lightSteelBlue);
     border-bottom: 10px solid var(--tomatoRed);
+    z-index: 99;
   }
   
   .header a {

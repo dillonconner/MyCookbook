@@ -50,7 +50,7 @@ const inProgressSlice = createSlice({
     initialState: {
         inProgress: [],
         isLoading: false,
-        requestFailed: false
+        requestFailed: false,
     },
     reducers: {},
     extraReducers: {
@@ -59,7 +59,7 @@ const inProgressSlice = createSlice({
             state.requestFailed = false;
         },
         [addInProgress.fulfilled]: (state, action) => {
-            state.inProgress = [...state.inProgress, action.payload];
+            state.inProgress = [action.payload, ...state.inProgress];
             state.isLoading = false;
             state.requestFailed = false;
         },
