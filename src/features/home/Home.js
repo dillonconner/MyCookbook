@@ -54,33 +54,37 @@ const Home = () => {
 
     return (
         <div className="home">
-            <div className="preview-heading">
-                <h2>In Progress</h2>
-                <button className="new-recipe" onClick={handleNewRecipeBtn}>New Recipe</button>
+            <div className="unfinished">
+                <div className="preview-heading">
+                    <h2>In Progress</h2>
+                    <button className="new-recipe-btn" onClick={handleNewRecipeBtn}>New Recipe</button>
+                </div>
+                <div className="preview-area">
+                    {inProgress.length > 0 ? 
+                        inProgress.map((r, id) => <InProgressTile key={id} recipe={r}/>)
+                        :
+                        <h2>No In Progress Recipes</h2>
+                    }
+                </div>
             </div>
-            <div className="preview-area">
-                {inProgress.length > 0 ? 
-                    inProgress.map((r, id) => <InProgressTile key={id} recipe={r}/>)
-                    :
-                    <h2>No In Progress Recipes</h2>
-                }
-            </div>
-            <div className="preview-heading recipes">
-                <h2>Finished Recipes</h2>
-                {searchLoading && <img className="loading-img" src={loadingIcon} alt={null} />}
-                <input className="search-bar" 
-                type="text" 
-                placeholder="Search for recipe (name or tag)" 
-                value={searchTerm}
-                onChange={handleSearchChange} />
+            <div className="finished">
+                <div className="preview-heading">
+                    <h2>Finished Recipes</h2>
+                    {searchLoading && <img className="loading-img" src={loadingIcon} alt={null} />}
+                    <input className="search-bar" 
+                    type="text" 
+                    placeholder="Search for recipe (name or tag)" 
+                    value={searchTerm}
+                    onChange={handleSearchChange} />
+                </div>
+                <div className="preview-area">
+                    {searchedRecipes.length > 0 ?
+                        searchedRecipes.map((r, id) => <RecipePreview key={id} recipe={r}/>)
+                        :
+                        <h2>No Finished Recipes Found</h2>}
+                </div>
             </div>
             
-            <div className="preview-area">
-                {searchedRecipes.length > 0 ?
-                    searchedRecipes.map((r, id) => <RecipePreview key={id} recipe={r}/>)
-                    :
-                    <h2>No Finished Recipes Found</h2>}
-            </div>
         </div>
     )
 }

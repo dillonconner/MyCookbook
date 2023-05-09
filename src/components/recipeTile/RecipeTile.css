@@ -63,7 +63,14 @@
     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
     overflow:hidden;
     resize: none;
-    
+}
+.recipe-tile .chCount {
+    font-size: 0.75em;
+    float: right;
+    margin-right: 5%;
+}
+.recipe-tile span {
+    margin:0;
 }
 
 .recipe-tile .time-input {
@@ -76,7 +83,7 @@
 }
 .recipe-tile .serving-input {
     background-color: var(--lightSteelBlue);
-    width: 30px;
+    width: 40px;
     padding-left: 1vw;
     font-size: 1em;
     border: none;

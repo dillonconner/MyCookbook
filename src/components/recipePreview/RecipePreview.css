@@ -33,6 +33,15 @@ a:-webkit-any-link {
 .recipe-preview .info {
     padding-left: 1vw;
 }
+.recipe-preview .cook-serve {
+    display: flex;
+    margin-top: 1em;
+}
+.recipe-preview .tags {
+    display: flex;
+    margin-top: 1em;
+}
+
 .recipe-preview .title{
     font-size: 2em;
     font-weight: bold;
@@ -40,6 +49,7 @@ a:-webkit-any-link {
 }
 .recipe-preview p {
     font-size: 1.25em;
+    margin:0;
     margin-right: 1vw;
     color: black;
 }

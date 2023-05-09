@@ -105,8 +105,7 @@ const EditInProgress = () => {
         <div className="edit-inprogress">
             <img className="back-btn" src={backArrow} alt="back" onClick={e => navigate('/home')} />
             <RecipeTile isEdit={isEdit} recipe={recipe} edit={edit} />
-            
-                {!isEdit ? 
+            {!isEdit ? 
                 <div className="options">
                     <button onClick={handleEditBtn}>Edit</button>
                     <button onClick={handleFinalizeBtn}>Finalize</button>
@@ -117,10 +116,8 @@ const EditInProgress = () => {
                     <button onClick={handleSaveBtn}>Save</button>
                     <button onClick={handleCancelBtn}>Cancel</button>
                 </div>
-                }
-                
-            
-            
+            }
+        
             <div className="versions">
                     {recipe.versions.map((v,id) => {
                         return (

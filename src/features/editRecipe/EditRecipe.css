@@ -4,12 +4,14 @@
     align-items: center;
     flex-direction: column;
     margin-top: 1vh;
+    font-size: max(1vw, 15px);
 }
 .edit-recipe .back-btn {
     position: absolute;
     top:50px;
     left:40px;
     border-radius: 70px;
+    width: 5vw;
 }
 .edit-recipe .back-btn:hover {
     background-color: var(--lightSteelBlue);
@@ -22,12 +24,9 @@
     display:flex;
     flex-direction: column;
     gap: 10px;
-    width:max-content;
-    z-index: 2;
 }
 .edit-recipe .buttons button {
-    width: 100%;
-    font-size: 1.5em;
+    box-shadow: 0px 1px rgb(0, 0, 0);
 }
 
 .edit-recipe .instructions-container {

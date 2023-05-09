@@ -13,10 +13,19 @@ const RecipePreview = ({recipe}) => {
             </div>
             <div className='info'>
                 <h3 className='title'>{recipe.name}</h3>
-                <p>{`Cook Time: ${recipe.time}`}</p>
-                <p>{`Servings: ${recipe.servings}`}</p>
-                <p>Tags:</p>
-                {recipe.tags.map((t) => <button className='tag'>{t}</button>)}
+                <p>{recipe.description}</p>
+                <div className='cook-serve'>
+                    <p>{`Cook Time: ${recipe.time}`}</p>
+                    <p>{`Servings: ${recipe.servings}`}</p>
+                </div>
+                <div className='tags'>
+                    <p>Tags:</p>
+                    {recipe.tags.length > 0 ? 
+                    recipe.tags.map((t) => <button className='tag'>{t}</button>)
+                    :
+                    <p>No tags</p>
+                    }
+                </div>
             </div>
             
         </div>

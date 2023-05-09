@@ -21,9 +21,24 @@
   display:flex;
 }
 
+button {
+  background: white;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  
+  font-size: 1em;
+}
+button:hover {
+  color: var(--tomatoRed);
+}
+button.tag:hover {
+  color: black;
+}
+
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
   height: 10px;
+
 }
 
 ::-webkit-scrollbar-track {

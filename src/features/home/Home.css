@@ -3,6 +3,11 @@
     margin: 0 5vw;
 }
 
+.home .finished {
+    border-top: 5px solid var(--tomatoRed);
+    min-height: 90vh;
+}
+
 .home .preview-heading {
     position: relative;
     display: flex;
@@ -11,15 +16,21 @@
     align-items: center;
     margin-top: 2vh;
 }
-.home .recipes {
-    border-top: 5px solid var(--tomatoRed);
+.home .preview-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.home .new-recipe {
+.home .new-recipe-btn {
     height: min-content;
     position: absolute;
     right: 135px;
     font-size: 1.25em;
+    box-shadow: 0px 1px rgb(0, 0, 0);
+}
+.home .new-recipe-btn:hover {
+    box-shadow: none;
 }
 
 .home .loading-img {
@@ -35,9 +46,4 @@
     width: 280px;
 }
 
-.home .preview-area {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    min-height: 80vh;
-}
+

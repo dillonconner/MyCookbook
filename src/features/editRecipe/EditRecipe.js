@@ -61,15 +61,16 @@ const EditRecipe = () => {
     return (
         <div className="edit-recipe">
             <img className="back-btn" src={backArrow} alt="back" onClick={e => navigate('/home')} />
+            <RecipeTile isEdit={isEdit} recipe={recipe} edit={edit} />
             <div className="buttons">
-                {!isEdit ? <button onClick={handleEditBtn}>Edit</button> 
-                            : 
-                            <button onClick={handleSaveBtn}>Save</button>
+                {!isEdit ? 
+                    <button onClick={handleEditBtn}>Edit</button> 
+                    : 
+                    <button onClick={handleSaveBtn}>Save</button>
                 }
                 {!isEdit && <button onClick={handleToInProgressBtn}>In Progress</button>}
                 <button onClick={handleDeleteBtn}>Delete</button>
             </div>
-            <RecipeTile isEdit={isEdit} recipe={recipe} edit={edit} />
             <div className="instructions-container">
                 <RecipeInstructions
                     ingredients={recipe.ingredients} 
