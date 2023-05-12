@@ -1,5 +1,5 @@
 .recipe-instructions {
-    background-color: whitesmoke;
+    background-color: white;
     position: relative;
     display: flex;
     width: 100%;
@@ -7,7 +7,8 @@
     padding-bottom: 20px;
     white-space: normal;
     text-align: center;
-    box-shadow: -5px 10px rgba(0, 0, 0,0.2);
+    border-radius: 10px;
+    box-shadow: -5px 10px 10px rgba(0, 0, 0,0.2);
 }
 
 .recipe-instructions .ingredients {

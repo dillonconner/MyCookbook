@@ -1,5 +1,5 @@
 import './Header.css';
-import icon from '../../util/profile-icon.png';
+import icon from '../../util/down_arrow.png';
 
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -15,11 +15,15 @@ const Header = () => {
     return (
         <div className='header' >
             <NavLink to='/' className='logo'>My CookBook</NavLink>
-            <div className='header-right'>
-                {auth.user && <p>{auth.user.username}</p> }
-                <img src={icon} alt='options' onClick={e => setShowOptions(true)}/>
-                {showOptions && <OptionsCard onMouseLeave={e => setShowOptions(false)} />}
+            <div className='header-right' onClick={e => setShowOptions(true)}>
+                {auth.user && <p >{auth.user.username}</p> }
+                <img src={icon} alt='options'/>
             </div>
+            {showOptions && 
+                <div className='options-container'>
+                    <OptionsCard onMouseLeave={e => setShowOptions(false)} />
+                </div>
+            }
         </div>
     )
 }

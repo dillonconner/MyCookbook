@@ -11,14 +11,34 @@ const Login = () => {
     const [isSignUp, setIsSignUp] = useState(false);
     const [form, setForm] = useState({username: '', password: ''});
 
+    
+    useEffect(() => {
+        const savedUser = localStorage.getItem('username');
+        if(savedUser){
+            setForm({username: savedUser, password: ''});
+            document.getElementsByClassName('remember-box')[0].checked = true;
+        }
+    }, [])
+    
+    
     useEffect(() => {
         if(auth.user && !auth.error){
-            navigate('/home', {replace:true});
+            navigate('/', {replace:true});
         }
     }, [auth.user, auth.error])
     
+    const handleLoginSignUpChange = (e) => {
+        isSignUp ? setIsSignUp(false) : setIsSignUp(true);
+        setForm({username: '', password: ''});
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(document.getElementsByClassName('remember-box')[0].checked){
+            localStorage.setItem('username', form.username);
+        }else {
+            localStorage.removeItem('username');
+        }
+
         if(isSignUp) {
             auth.signup(form.username, form.password);
         }else {
@@ -27,16 +47,11 @@ const Login = () => {
     }
     const onFormChange = (e) => setForm({...form, [e.target.name]: e.target.value});
     const handleForgotPass = (e) => {
+        e.preventDefault();
         alert('Dang thats tough... Good luck remembering it');
     }
-    const handleRememberChange = (e) => {
-        if(e.target.checked){
-            //make keep jwt
-        }else {
-            //make not keep jwt
-        }
-    }
 
+ 
     return (
         <div className='login'>
             <div className='header'>
@@ -46,9 +61,9 @@ const Login = () => {
                 <div>
                     <h2 className='large'>Welcome Back</h2>
                     {!isSignUp ? 
-                    <h2>Log In or <button className='login-type-btn' onClick={e => setIsSignUp(true)}>Sign Up</button></h2>
+                    <h2>Log In or <button className='login-type-btn' onClick={handleLoginSignUpChange}>Sign Up</button></h2>
                     :
-                    <h2>Sign Up or <button className='login-type-btn' onClick={e => setIsSignUp(false)}>Log In</button></h2>
+                    <h2>Sign Up or <button className='login-type-btn' onClick={handleLoginSignUpChange}>Log In</button></h2>
                     }
                 </div>
                 <form onSubmit={handleSubmit}>
@@ -68,9 +83,9 @@ const Login = () => {
                         placeholder="Password"
                         required />
                         
-                    <input className='remember-box' type='checkbox' name='rememberme' onChange={handleRememberChange} />
+                    <input className='remember-box' type='checkbox' name='rememberme' />
                     <label className='remember-label' htmlFor='rememberme'>Remember Me</label>
-                    <button className='forgot-password' onClick={handleForgotPass}>Forgot Password?</button>
+                    {!isSignUp && <p className='forgot-password' onClick={handleForgotPass}>Forgot Password?</p>}
                     <p className='error'>{auth.error}</p>
                     <button className='login-submit'>{isSignUp ? 'Sign Up' : 'Log In'}</button>
                     {auth.isLoading && <img className='loading-icon' src={loadingIcon} alt='loading' />}

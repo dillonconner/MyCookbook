@@ -5,15 +5,17 @@
     width: 100%;
     position: absolute;
     top:0;
+    font-size: 18px;
 }
 
 .login .header {
-    background-color: var(--lightSteelBlue);
+    background-color: rgba(253, 230, 182, 0.9);
     position: absolute;
     top: 0;
     width: 100%;
-    border-bottom: 5px solid var(--tomatoRed) ;
+    border-bottom: 10px solid var(--tomatoRed) ;
     font-size: 1.5em;
+    font-family: 'Dancing Script', cursive;
     padding: 0;
 }
 
@@ -25,7 +27,7 @@
     width:min-content;
     padding: 5vh 5vw;
     border-radius: 15px;
-    box-shadow: -10px 15px rgba(0, 0, 0,0.6);
+    box-shadow: -5px 15px 10px rgba(0, 0, 0,0.6);
 }
 
 .login .large {
@@ -85,4 +87,24 @@
     position: absolute;
     bottom:2%;
     right: 30%;
+}
+
+@media only screen and (max-width: 600px) {
+    .login {
+        background-image: none;
+        background-color: whitesmoke;
+        font-size: 12px;
+    }
+
+    .login .header {
+        background-color: rgba(253, 230, 182, 1);
+        height: 135px;
+        padding-top: 20px;
+        font-size: 2.5em;
+    }
+
+    .login-form  {
+        top: 30%;
+        left: 10%;
+    }
 }

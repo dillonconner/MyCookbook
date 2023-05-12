@@ -21,7 +21,7 @@ const RecipePreview = ({recipe}) => {
                 <div className='tags'>
                     <p>Tags:</p>
                     {recipe.tags.length > 0 ? 
-                    recipe.tags.map((t) => <button className='tag'>{t}</button>)
+                    recipe.tags.map((t,id) => <button className='tag' key={id}>{t}</button>)
                     :
                     <p>No tags</p>
                     }

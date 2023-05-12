@@ -87,12 +87,12 @@ const EditInProgress = () => {
         delete finalRecipe.versions;
         dispatch(addRecipe({recipe:finalRecipe}));
         dispatch(removeInProgress({recipeId:recipeId}));
-        navigate('/home');
+        navigate('/');
     }
     const handleDeleteBtn = (e) => {
         // are you sure message
         dispatch(removeInProgress({recipeId:recipeId}));
-        navigate('/home');
+        navigate('/');
     }
     const handleRevertBtn = (e) => {
         const index = parseInt(e.target.getAttribute('version-key'));
@@ -103,7 +103,7 @@ const EditInProgress = () => {
     if(!recipe) return <div>Loading</div>
     return (
         <div className="edit-inprogress">
-            <img className="back-btn" src={backArrow} alt="back" onClick={e => navigate('/home')} />
+            <img className="back-btn" src={backArrow} alt="back" onClick={e => navigate('/')} />
             <RecipeTile isEdit={isEdit} recipe={recipe} edit={edit} />
             {!isEdit ? 
                 <div className="options">

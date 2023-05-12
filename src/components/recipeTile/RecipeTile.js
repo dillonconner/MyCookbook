@@ -71,7 +71,7 @@ const RecipeTile = ({recipe, isEdit, edit}) => {
                     <p>{`Cook Time: ${recipe.time}`}</p>
                     <p>{`Servings: ${recipe.servings}`}</p>
                     <p>Tags:</p>
-                    {recipe.tags.map((t) => <button className='tag'>{t}</button>)}
+                    {recipe.tags.map((t, id) => <button className='tag' key={id}>{t}</button>)}
                 </div>
             </div>
             :
@@ -100,11 +100,11 @@ const RecipeTile = ({recipe, isEdit, edit}) => {
                         <p>Tags:</p>
                         <input 
                         className='tag-input' 
-                        placeholder='Tag Name' 
+                        placeholder='Add Tag' 
                         value={tagValue}
                         onChange={e => setTagValue(e.target.value.toLowerCase())}
                         onKeyDown={handleTagInput} />
-                        {recipe.tags.map((t) => <button className='tag removable-tag' onClick={handleRemoveTag} value={t}>{t}</button>)}
+                        {recipe.tags.map((t, id) => <button className='tag removable-tag' key={id} onClick={handleRemoveTag} value={t}>{t}</button>)}
                     </div>
                 </div>
             </div>

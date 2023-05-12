@@ -3,7 +3,7 @@
 import { BlobServiceClient } from "@azure/storage-blob";
 
 const containerName = `images`;
-const sasToken = 'sp=racwdl&st=2023-05-03T20:01:56Z&se=2023-05-11T04:01:56Z&spr=https&sv=2022-11-02&sr=c&sig=Y1Dn3dXT9f4MAPwtcI8caYtYIpwUU9%2BdmfchCRWi6S8%3D';
+const sasToken = 'sp=racwdl&st=2023-05-11T19:04:17Z&se=2023-06-01T03:04:17Z&spr=https&sv=2022-11-02&sr=c&sig=g8mWnZ4T1mYoH%2BKQj11gK5SFiR7Fm7og3L81GL%2BuTKA%3D';
 const storageAccountName = 'cookbookimages';
 
 const uploadUrl = `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`;

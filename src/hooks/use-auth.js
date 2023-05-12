@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import { Navigate } from "react-router-dom";
 import { baseUrl } from "../util/apiConfig";
 
@@ -23,6 +23,11 @@ function useProvideAuth() {
     const [ error, setError ] = useState(null);
     const [ isLoading, setIsLoading ] = useState(false);
 
+    useEffect(() => {
+        const savedJWT = localStorage.getItem('token');
+        if(savedJWT) autoLogin(savedJWT);
+    }, [])
+    
     const login = (username, password) => {
         setIsLoading(true);
         setError(null);
@@ -73,18 +78,32 @@ function useProvideAuth() {
 
     const logout = () => {
         setUser(null);
-        /*
-        if(!staySignedIn){
-            localStorage.removeItem('token');
-        }
-        */
-       localStorage.removeItem('token');
+        localStorage.removeItem('token');
     }
 
-    const autoLogin = () => {
-        const token = localStorage.getItem('token');
+    const autoLogin = (token) => {
         if(token){
-            //auto login
+            setIsLoading(true);
+            setError(null);
+            fetch(`${baseUrl}/user/autoLogin`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json',
+                            'authorization' : `Bearer ${token}` }
+            }).then(r => {
+                setIsLoading(false);
+                if(r.ok) {
+                    r.json().then((resp) =>{
+                        if(resp.success){
+                            setUser({username:resp.username, token:resp.token});
+                            localStorage.setItem('token', resp.token);
+                        }else {
+                            setError(resp.err);
+                        }
+                    });
+                } else {
+                    r.json().then((err) => setError(err.msg));
+                }
+            })
         }
     }
 

@@ -3,7 +3,6 @@
     display:flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 1vh;
     font-size: max(1vw, 15px);
 }
 .edit-recipe .back-btn {
@@ -19,7 +18,7 @@
 
 .edit-recipe .buttons {
     position: absolute;
-    top: 0;
+    top: 10px;
     right: 6vw;
     display:flex;
     flex-direction: column;
@@ -30,8 +29,8 @@
 }
 
 .edit-recipe .instructions-container {
-    width: 70%;
+    width: 75%;
     margin-bottom: 10vh;
-    padding: 10px 10%;
+    padding: 0px 10%;
     border-top: 5px solid var(--tomatoRed);
 }

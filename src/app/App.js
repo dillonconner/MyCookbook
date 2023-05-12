@@ -11,14 +11,15 @@ import EditRecipe from '../features/editRecipe/EditRecipe';
 import EditInProgress from '../features/editInProgress/EditInProgress';
 
 function App() {
+
   return (
     <div className="App">
       <ProvideAuth>
         <Header />
         <Routes>
-          <Route path='login' element={<Login/>} />
+          <Route path='/login' element={<Login/>} />
           
-          <Route path='home' element={<RequireAuth><Home /></RequireAuth>} />
+          <Route path='' element={<RequireAuth><Home /></RequireAuth>} />
           <Route path='recipe/:recipeId' element={<RequireAuth><EditRecipe/></RequireAuth>} />
           <Route path='in-progress/:recipeId' element={<RequireAuth><EditInProgress/></RequireAuth>} />
           <Route path='new-recipe' element={<RequireAuth><NewRecipe/></RequireAuth>} />

@@ -1,39 +1,55 @@
 .header {
     overflow: hidden;
-    padding: 20px 10px;
-    background-color: var(--lightSteelBlue);
+    padding: 20px 100px;
+    background-color: rgba(253, 230, 182);
     border-bottom: 10px solid var(--tomatoRed);
-    z-index: 99;
+    z-index: 2;
+    font-weight: bold;
   }
   
   .header a {
+    font-family: 'Dancing Script', cursive;
     float: left;
     color: black;
     text-align: center;
     padding: 12px;
     text-decoration: none;
-    font-size: 30px; 
     line-height: 25px;
     border-radius: 4px;
+    
   }
   
   .header a.logo {
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 60px;
   }
   
   .header-right {
     float: right;
-    margin-right: 50px;
     display: flex;
     gap: 10px;
+    font-size: 20px;
+  }
+  .header-right:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    border-radius: 20px;
   }
 
   .header img {
-    width: 60px;
-    border-radius: 30px;
+    width: 10px;
+    height: 10px;
+    padding-top: 28px;
   }
-  .header img:hover {
-    cursor: pointer;
-    background-color: var(--lightGreen);
+
+  .header .options-container {
+    position: absolute;
+    top: 65px;
+    right: 100px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0,0.6);
+    z-index: 2;
   }
+
+  @media only screen and (max-width: 600px) {
+
+    
+}

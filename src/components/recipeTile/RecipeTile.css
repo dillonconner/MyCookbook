@@ -1,19 +1,22 @@
 .recipe-tile {
+    background-color: white;
     display: flex;
     width: 75vw;
     height: 50vh;
-    padding-bottom: 1vh;
     font-size: 1vw;
     text-align: left;
+    border-radius: 10px;
 }
 
 .recipe-tile .image {
     position: relative;
     width: 30%;
+    border-radius: inherit;
 }
 .recipe-tile img {
     height: 100%;
     width: 100%;
+    border-radius: inherit;
 }
 .recipe-tile .file-upload {
     background-color: rgba(0, 0, 0, 0.5);
@@ -23,6 +26,7 @@
     bottom: 0;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
 }
 .recipe-tile .file-select {
     background-color: aliceblue;
@@ -61,6 +65,7 @@
     font-size: 1.25em;
     border: none;
     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
     overflow:hidden;
     resize: none;
 }

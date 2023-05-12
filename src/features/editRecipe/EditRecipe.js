@@ -48,19 +48,19 @@ const EditRecipe = () => {
         delete newInProgress.steps;
         dispatch(addInProgress({recipe:newInProgress}));
         dispatch(removeRecipe({recipeId:recipeId}));
-        navigate('/home');
+        navigate('/');
     }
     const handleDeleteBtn = (e) => {
         dispatch(removeRecipe({recipeId:recipeId}));
         //confirm
         //check if it actually deleted
-        navigate('/home');
+        navigate('/');
     }
 
     if(!recipe) return <div>Loading</div>
     return (
         <div className="edit-recipe">
-            <img className="back-btn" src={backArrow} alt="back" onClick={e => navigate('/home')} />
+            <img className="back-btn" src={backArrow} alt="back" onClick={e => navigate('/')} />
             <RecipeTile isEdit={isEdit} recipe={recipe} edit={edit} />
             <div className="buttons">
                 {!isEdit ? 

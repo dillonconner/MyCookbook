@@ -15,12 +15,10 @@ const OptionsCard = ({onMouseLeave}) => {
 
     return (
         <div className='options-card' onMouseLeave={onMouseLeave}>
-            <ul name='settings'>
-                <li>Privacy</li>
-                <li>Preferences</li>
-                <li>blah</li>
-            </ul>
-            <button onClick={handleLogout}>Log Out</button>
+            <p>Privacy</p>
+            <p>Preferences</p>
+            <p>blah</p>
+            <p className='logout' onClick={handleLogout}>Log Out</p>
         </div>
     )
 }
