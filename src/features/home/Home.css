@@ -46,4 +46,28 @@
     width: 280px;
 }
 
+@media only screen and (max-width: 600px) {
+    .in-progress {
+        height: 45vh;
+        width: 95vw;
+    }
+    .home .preview-heading {
+        justify-content: space-evenly;
+    }
+    .home .new-recipe-btn {
+        position: unset;
+    }
+    .home .finished .preview-heading{
+        flex-direction: column;
+    }
+    .home .search-bar {
+        position: unset;
+    }
 
+    .in-progress .image-container {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+}

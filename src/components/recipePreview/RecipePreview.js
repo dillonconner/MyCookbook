@@ -13,7 +13,7 @@ const RecipePreview = ({recipe}) => {
             </div>
             <div className='info'>
                 <h3 className='title'>{recipe.name}</h3>
-                <p>{recipe.description}</p>
+                <p className='description'>{recipe.description}</p>
                 <div className='cook-serve'>
                     <p>{`Cook Time: ${recipe.time}`}</p>
                     <p>{`Servings: ${recipe.servings}`}</p>

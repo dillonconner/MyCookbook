@@ -1,6 +1,6 @@
 .options-card {
-    background-color: rgb(253, 230, 182);
-    color: rgb(82, 82, 82);
+    background-color: inherit;
+    color: rgb(66, 66, 66);
     padding: 10px 15px;
     text-align: left;
     font-size: 1.25em;

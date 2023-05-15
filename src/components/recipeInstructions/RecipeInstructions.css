@@ -3,7 +3,7 @@
     position: relative;
     display: flex;
     width: 100%;
-    font-size: 1vw;
+    font-size: 15px;
     padding-bottom: 20px;
     white-space: normal;
     text-align: center;
@@ -21,11 +21,15 @@
 .recipe-instructions .steps .step-li {
     display: flex;
     width: 100%;
+    margin-bottom: 1vh;
+}
+.recipe-instructions .steps li {
+    margin-bottom: 1vh;
 }
 .recipe-instructions .display li {
     font-size: 1.25em;
     text-align: left;
-    margin-bottom: 1vh;
+    margin-left: 15px;
 }
 
 .recipe-instructions h3 {
@@ -35,7 +39,6 @@
 }
 
 /*    Editable     */
-
 .recipe-instructions textarea {
     background-color: transparent;
     width: 80%;
@@ -48,9 +51,6 @@
     margin-top: 1vh;
 }
 
-.recipe-instructions li {
-    margin-left: 15px;
-}
 
 .recipe-instructions input {
     background-color: transparent;
@@ -89,5 +89,36 @@
     color: var(--tomatoRed);
 }
 .recipe-instructions .removedHeader {
-    text-align: left;
+    width: 90%;
+    margin: 5px 5%;
+    border-bottom: 2px solid gray;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .recipe-instructions {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-size: 10px;
+        padding-bottom: 20px;
+        white-space: normal;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: -5px 10px 10px rgba(0, 0, 0,0.2);
+    }
+    .recipe-instructions .ingredients {
+        width: 100%;
+    }
+    .recipe-instructions .steps {
+        width: 100%;
+    }
+    .recipe-instructions .steps .step-li {
+        padding-left: 15px;
+    }
+    .recipe-instructions textarea {
+        font-size: 1.1em;
+        margin: 10px 0 0 3px;
+    }
 }

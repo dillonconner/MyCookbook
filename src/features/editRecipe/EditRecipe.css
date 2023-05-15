@@ -16,7 +16,7 @@
     background-color: var(--lightSteelBlue);
 }
 
-.edit-recipe .buttons {
+.edit-recipe .options {
     position: absolute;
     top: 10px;
     right: 6vw;
@@ -24,7 +24,7 @@
     flex-direction: column;
     gap: 10px;
 }
-.edit-recipe .buttons button {
+.edit-recipe .options button {
     box-shadow: 0px 1px rgb(0, 0, 0);
 }
 
@@ -33,4 +33,23 @@
     margin-bottom: 10vh;
     padding: 0px 10%;
     border-top: 5px solid var(--tomatoRed);
+}
+
+@media only screen and (max-width: 600px) {
+    .edit-recipe .options {
+        background-color: rgba(128, 128, 128, 0.5);
+        position:fixed;
+        top: unset;
+        bottom: 0;
+        left: 0;
+        height: 5vh;
+        width: 100%;
+        padding: 2.5vh 0;
+        flex-direction: row;
+        justify-content: space-evenly;
+        z-index: 3;
+    }
+    .edit-recipe .options button {
+        width:25%;
+    }
 }

@@ -12,6 +12,8 @@ const Header = () => {
     const auth = useAuth();
     const [ showOptions, setShowOptions ] = useState(false);
 
+    
+
     return (
         <div className='header' >
             <NavLink to='/' className='logo'>My CookBook</NavLink>

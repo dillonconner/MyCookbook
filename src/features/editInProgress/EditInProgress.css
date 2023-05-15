@@ -4,7 +4,6 @@
     align-items: center;
     flex-direction: column;
     margin-top: 1vh;
-    font-size: max(1vw, 15px);
 }
 .edit-inprogress .back-btn {
     position: absolute;
@@ -82,4 +81,44 @@
 .edit-inprogress .addversion:hover {
     color: black;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .edit-inprogress .options {
+        background-color: rgba(128, 128, 128, 0.5);
+        position:fixed;
+        top: unset;
+        bottom: 0;
+        left: 0;
+        height: 5vh;
+        width: 100%;
+        padding: 2.5vh 0;
+        flex-direction: row;
+        justify-content: space-evenly;
+        z-index: 3;
+    }
+    .edit-inprogress .options button {
+        width:25%;
+    }
+    .edit-inprogress .versions {
+        width: 50%;
+        padding: 0 25vw 50px;
+    }
+    .edit-inprogress .versions .version {
+        position: relative;
+        display: inline-block;
+        width: 90vw;
+        margin: 0 1vw;
+        scroll-margin: 0 400px;
+    }
+    .edit-inprogress .addversion {
+        background-color: transparent;
+        color: gray;
+        position: absolute;
+        top: 200px;
+        padding-left: 50px;
+        padding-right: 20px;
+        border: none;
+        font-size: 5em;
+    }
 }

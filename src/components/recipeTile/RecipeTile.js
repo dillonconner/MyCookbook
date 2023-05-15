@@ -66,12 +66,15 @@ const RecipeTile = ({recipe, isEdit, edit}) => {
             {!isEdit ? 
             <div className='info'>
                 <h3 className='title'>{recipe.name}</h3>
-                <p>{recipe.description}</p>
+                <p className='description'>{recipe.description}</p>
                 <div className='details'>
                     <p>{`Cook Time: ${recipe.time}`}</p>
                     <p>{`Servings: ${recipe.servings}`}</p>
-                    <p>Tags:</p>
-                    {recipe.tags.map((t, id) => <button className='tag' key={id}>{t}</button>)}
+                    <div className='tags'>
+                        <p>Tags:</p>
+                        {recipe.tags.map((t, id) => <button className='tag' key={id}>{t}</button>)}
+                    </div>
+                    
                 </div>
             </div>
             :
@@ -80,22 +83,25 @@ const RecipeTile = ({recipe, isEdit, edit}) => {
                     className='title' 
                     rows={2} 
                     value={recipe.name}
-                    maxLength='100' 
+                    maxLength='50' 
                     onChange={handleTitleChange}/>
-                <div className="chCount"><span>{100 - recipe.name.length}</span><span>/ 100</span></div>
-                <textarea 
+                <div className="chCount"><span>{50 - recipe.name.length}</span><span>/ 50</span></div>
+                <textarea
+                    className='description' 
                     rows={5} 
                     value={recipe.description}
-                    maxLength='500'  
+                    maxLength='300'  
                     onChange={handleDescChange}/>
-                <div className="chCount"><span>{500 - recipe.description.length}</span><span>/ 500</span></div>
-                
+                <div className="chCount"><span>{300 - recipe.description.length}</span><span>/ 300</span></div>
                 <div className='details'> 
-                    <label>Cook Time: </label>
-                    <input className='time-input' type='text' value={recipe.time} onChange={e => edit(e.target.value, 'time')}/>
-                    <br/>
-                    <label>Servings: </label>
-                    <input className='serving-input' type='number' value={recipe.servings} max={99} onChange={handleServingChange}/>
+                    <div className='detail-input'>
+                        <p htmlFor='cook-time'>Cook Time: </p>
+                        <input className='time-input' type='text' name='cook-time' value={recipe.time} onChange={e => edit(e.target.value, 'time')}/>
+                    </div>
+                    <div className='detail-input'>
+                        <p htmlFor='servings'>Servings: </p>
+                        <input className='serving-input' type='number' name='servings' value={recipe.servings} max={99} onChange={handleServingChange}/>
+                    </div>
                     <div className='tags'>
                         <p>Tags:</p>
                         <input 

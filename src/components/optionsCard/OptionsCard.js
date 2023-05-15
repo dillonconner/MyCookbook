@@ -9,6 +9,7 @@ const OptionsCard = ({onMouseLeave}) => {
     const auth = useAuth();
 
     const handleLogout = (e) => {
+        onMouseLeave();
         auth.logout();
         navigate('/login');
     }

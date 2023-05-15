@@ -1,55 +1,77 @@
 .header {
-    overflow: hidden;
-    padding: 20px 100px;
-    background-color: rgba(253, 230, 182);
-    border-bottom: 10px solid var(--tomatoRed);
-    z-index: 2;
-    font-weight: bold;
-  }
+  overflow: hidden;
+  padding: 20px 100px;
+  background-color: rgb(110, 162, 204);
+  border-bottom: 10px solid var(--tomatoRed);
+  z-index: 2;
+  font-weight: bold;
+}
+
+.header a {
+  font-family: 'Dancing Script', cursive;
+  float: left;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  line-height: 25px;
+  border-radius: 4px;
   
-  .header a {
-    font-family: 'Dancing Script', cursive;
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    line-height: 25px;
-    border-radius: 4px;
-    
+}
+
+.header a.logo {
+  font-size: 60px;
+}
+
+.header-right {
+  float: right;
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+.header-right:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  border-radius: 20px;
+}
+
+.header img {
+  width: 10px;
+  height: 10px;
+  padding-top: 28px;
+}
+
+.header .options-container {
+  background-color: inherit;
+  position: absolute;
+  top: 65px;
+  right: 100px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0,0.6);
+  z-index: 2;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .header {
+    padding: 10px 0;
   }
-  
   .header a.logo {
-    font-size: 60px;
+    font-size: 40px;
   }
-  
   .header-right {
-    float: right;
-    display: flex;
-    gap: 10px;
-    font-size: 20px;
+    font-size: 15px;
   }
   .header-right:hover {
-    cursor: pointer;
-    text-decoration: underline;
     border-radius: 20px;
   }
-
   .header img {
     width: 10px;
     height: 10px;
-    padding-top: 28px;
+    padding-top: 20px;
   }
-
   .header .options-container {
-    position: absolute;
-    top: 65px;
-    right: 100px;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0,0.6);
-    z-index: 2;
+    top: 50px;
+    right: 0px;
+    font-size: 12px;
   }
-
-  @media only screen and (max-width: 600px) {
-
-    
 }

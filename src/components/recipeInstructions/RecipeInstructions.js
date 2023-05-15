@@ -33,20 +33,20 @@ const RecipeInstructions = ({isEdit, ingredients, steps, additions, deletions, e
                 <div className='ingredients display'>
                     <h3>Ingredients</h3>
                     <ul>
-                        {additions ?
-                            ingredients.map((ingredient, id) => {
-                                return <li className={additions.ingredients.includes(ingredient) ? 'addedItem' :undefined} key={id}>{ingredient}</li>
-                            })
-                            :
-                            ingredients.map((ingredient, id) => <li key={id}>{ingredient}</li> )
+                        {
+                        ingredients.map((ingredient, id) => {
+                            return <li className={additions?.ingredients.includes(ingredient) ? 'addedItem' :undefined} key={id}>{ingredient}</li>
+                        })
                         }
                         
                     </ul>
                     
                     {deletions && deletions.ingredients.length > 0 &&
                         <div>
-                            <p>Removed</p>
-                            {deletions.ingredients.map((ingredient, id) => <li className='removedItem' key={id}>{ingredient}</li>)}
+                            <p className='removedHeader'>Removed Ingredients</p>
+                            <ul>
+                                {deletions.ingredients.map((ingredient, id) => <li className='removedItem' key={id}>{ingredient}</li>)}
+                            </ul>
                         </div>
                     }
                 </div> 
@@ -67,18 +67,17 @@ const RecipeInstructions = ({isEdit, ingredients, steps, additions, deletions, e
                 <div className='steps display'>
                     <h3>Instructions</h3>
                     <ol>
-                        {additions ?
-                            steps.map((step, id) => {
-                                return <li className={additions.steps.includes(step) ? 'addedItem' : undefined} key={id}>{step}</li>
-                            })
-                            :
-                            steps.map((step, id) => <li key={id}>{step}</li>)
-                        }
+                        {steps.map((step, id) => {
+                            return <li className={additions?.steps.includes(step) ? 'addedItem' : undefined} key={id}>{step}</li>
+                        })}
                     </ol>
-                    {deletions && deletions.steps.length > 0 &&
+                    {deletions?.steps.length > 0 &&
                         <div>
-                            <p>Removed</p>
-                            {deletions.steps.map((step, id) => <li className='removedItem' key={id}>{step}</li>)}
+                            <p className='removedHeader'>Removed Steps</p>
+                            <ol>
+                                {deletions.steps.map((step, id) => <li className='removedItem' key={id}>{step}</li>)}
+                            </ol>
+                            
                         </div>
                     }
                 </div> 

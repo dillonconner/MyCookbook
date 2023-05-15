@@ -62,7 +62,7 @@ const EditRecipe = () => {
         <div className="edit-recipe">
             <img className="back-btn" src={backArrow} alt="back" onClick={e => navigate('/')} />
             <RecipeTile isEdit={isEdit} recipe={recipe} edit={edit} />
-            <div className="buttons">
+            <div className="options">
                 {!isEdit ? 
                     <button onClick={handleEditBtn}>Edit</button> 
                     : 

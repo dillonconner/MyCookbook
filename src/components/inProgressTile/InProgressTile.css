@@ -37,13 +37,18 @@
     height:30%;
     overflow: hidden;
 }
+.in-progress .title {
+    word-wrap: break-word;
+}
+.in-progress .description {
+    word-wrap: break-word;
+}
 
 .in-progress .directions {
     height:70%;
     display:flex;
     justify-content: space-evenly;
     color: black;
-
 }
 .in-progress .list {
     width: 45%;
@@ -74,4 +79,30 @@
 .in-progress li {
     padding: 5px 10px;
     text-align: left;
+}
+
+@media only screen and (max-width: 600px) {
+    .in-progress {
+        height: 45vh;
+        width: 95vw;
+        font-size: 15px;
+    }
+    .in-progress .image-container {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+    .in-progress .info {
+        width: inherit;
+        height: 100%;
+        padding: 10px 1%;
+    }
+    .in-progress .about {
+        height:30%;
+        overflow:scroll;
+    }
+    .in-progress .directions {
+        height:65%;
+    }
+
 }

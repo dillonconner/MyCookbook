@@ -61,7 +61,7 @@ const Home = () => {
                 </div>
                 <div className="preview-area">
                     {inProgress.length > 0 ? 
-                        inProgress.map((r, id) => <InProgressTile key={id} recipe={r}/>)
+                        inProgress.map((r, id) => <InProgressTile key={id} tileNum={id} recipe={r}/>)
                         :
                         <h2>No In Progress Recipes</h2>
                     }
