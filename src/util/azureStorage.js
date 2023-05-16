@@ -2,6 +2,7 @@
 // To bad im using it anyway
 import { BlobServiceClient } from "@azure/storage-blob";
 
+//I know i need to change these to env variables later
 const containerName = `images`;
 const sasToken = 'sp=racwdl&st=2023-05-11T19:04:17Z&se=2023-06-01T03:04:17Z&spr=https&sv=2022-11-02&sr=c&sig=g8mWnZ4T1mYoH%2BKQj11gK5SFiR7Fm7og3L81GL%2BuTKA%3D';
 const storageAccountName = 'cookbookimages';
